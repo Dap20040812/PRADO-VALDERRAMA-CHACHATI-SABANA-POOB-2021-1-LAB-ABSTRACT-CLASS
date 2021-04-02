@@ -10,15 +10,15 @@
 
  ### Circle
 
- ![](img/EVIP1C.svg)
+ ![](img/EVIP1C.png)
 
  ### Triangle
 
- ![](img/EVIP1T.svg)
+ ![](img/EVIP1T.png)
 
  ### Rectangle && Square
 
- ![](img/EVIP1R.svg)
+ ![](img/EVIP1R.png)
 
 
  ## Parte 2
@@ -29,4 +29,4 @@
 
  ### Evidencia pruebas
 
- ![](img/EVIP2.svg)
+ ![](img/EVIP2.png)
