@@ -2,9 +2,13 @@ package edu.sabana.poob.sabanapayroll;
 
 public class Savings extends BankAccount {
 
+    public final double DEPOSIT_DISCOUNT = 2000;
+    public final double ANNUAL_INTEREST_RATE = 0.01;
+
+
     @Override
     public double getDepositDiscount() {
-        return 0;
+        return DEPOSIT_DISCOUNT;
     }
 
     /**
@@ -13,7 +17,11 @@ public class Savings extends BankAccount {
      * @return el porcentaje depositado en la cuenta.
      */
     public double depositMontlyInterest(){
-        return 0;
+
+        deposit(getBalance()*ANNUAL_INTEREST_RATE/12 + DEPOSIT_DISCOUNT);
+        return getBalance()*ANNUAL_INTEREST_RATE/12;
+
     }
+
 
 }

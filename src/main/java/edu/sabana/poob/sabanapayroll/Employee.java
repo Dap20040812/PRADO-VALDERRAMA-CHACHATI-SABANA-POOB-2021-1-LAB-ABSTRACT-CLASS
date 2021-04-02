@@ -10,6 +10,7 @@ public abstract  class Employee {
     private String name;
     private String lastname;
     private Department department;
+    private BankAccount account;
 
     public Employee(String name, String lastname, Department department) {
         this.id = UUID.randomUUID();
