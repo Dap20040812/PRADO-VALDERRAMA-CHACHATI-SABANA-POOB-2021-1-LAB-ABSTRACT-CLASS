@@ -31,12 +31,6 @@
 
  ![](img/EVIP2.png)
 
- ## Parte 3
-
- ### UML
-
- ![](img/UMLP3.svg)
-
  ## Parte 4
 
  ### UML
@@ -62,3 +56,7 @@
  ![](img/EVIP4-1.png)
 
  ![](img/EVIP4-2.png)
+
+ ## Parte 5
+
+ ![](img/UMLP5.svg)
