@@ -53,6 +53,31 @@ public class CheckingTest {
     }
 
     @Test
+    public void shouldWithdraw() {
+        Checking account = new Checking();
+        Check check = new Check(10000, LocalDate.now().plusMonths(1));
+
+        assertTrue(account.processCheck(check));
+        assertTrue(Double.compare(5000, account.getBalance()) == 0);
+
+        assertTrue(account.withdraw(4000));
+        assertTrue(Double.compare(0, account.getBalance()) == 0);
+
+    }
+    @Test
+    public void shouldNotWithdraw() {
+        Checking account = new Checking();
+        Check check = new Check(10000, LocalDate.now().plusMonths(1));
+
+        assertTrue(account.processCheck(check));
+        assertTrue(Double.compare(5000, account.getBalance()) == 0);
+
+        assertFalse(account.withdraw(5000));
+        assertTrue(Double.compare(5000, account.getBalance()) == 0);
+
+    }
+
+    @Test
     public void shouldKeepBalance() {
         Checking account = new Checking();
 

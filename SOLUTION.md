@@ -36,3 +36,29 @@
  ### UML
 
  ![](img/UMLP3.svg)
+
+ ## Parte 4
+
+ ### UML
+
+ ![](img/UMLP4.svg)
+
+ ### Diagramas de secuencia
+
+ ### calculateEmployeeBalance
+
+ ![](img/calculateEmployeeBalance.svg)
+
+ ### calculateAllEmployeesBalance
+
+ ![](img/calculateAllEmployeeBalance.svg)
+
+ ### depositToEmployee
+
+ ![](img/depositToEmployee.svg)
+
+ ### Evidencia pruebas
+
+ ![](img/EVIP4-1.png)
+
+ ![](img/EVIP4-2.png)

@@ -12,11 +12,21 @@ public abstract  class Employee {
     private Department department;
     private BankAccount account;
 
-    public Employee(String name, String lastname, Department department) {
+    public Employee(String name, String lastname, Department department, String tipodeCuenta) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.lastname = lastname;
         this.department = department;
+        if(tipodeCuenta.equals("Checking"))
+        {
+            Checking account = new Checking();
+            this.account = account;
+        }
+        if (tipodeCuenta.equals("Saving"))
+        {
+            Savings account = new Savings();
+            this.account = account;
+        }
     }
 
     public abstract double calculateSalary();
@@ -39,5 +49,9 @@ public abstract  class Employee {
 
     public UUID getId() {
         return id;
+    }
+
+    public BankAccount getAccount() {
+        return account;
     }
 }

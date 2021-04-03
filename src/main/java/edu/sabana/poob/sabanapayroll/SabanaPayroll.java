@@ -77,6 +77,55 @@ public class SabanaPayroll {
         departments.add(department);
     }
 
+    /**
+     * Deposita a un empleado en especifico.
+     * @param idEmployee
+     * @param amount
+     * @return si la transacción.
+     */
+    public boolean depositToEmployee(UUID idEmployee,double amount)
+    {
+        BankAccount a = null;
+        boolean isEmployee = false;
+        boolean result = false;
+        for (int i=0;i<this.departments.size() && !isEmployee; i++)
+        {
+            a = departments.get(i).findEmployeeAccount(idEmployee);
+            if(a != null)
+            {
+                isEmployee = true;
+            }
+
+        }
+        result = a.deposit(amount);
+        return result;
+    }
+    public double calculateEmployeeBalance(UUID idEmployee)
+    {
+        BankAccount a = null;
+        boolean isEmployee = false;
+
+        for (int i=0;i<this.departments.size() && !isEmployee; i++)
+        {
+            a = departments.get(i).findEmployeeAccount(idEmployee);
+            if(a != null)
+            {
+                isEmployee = true;
+            }
+
+        }
+        return a.getBalance();
+    }
+    public double calculateAllEmployeeBalance()
+    {
+        double AllEmployeeBalance = 0;
+        for (int i=0;i<this.departments.size(); i++)
+        {
+            AllEmployeeBalance += departments.get(i).findEmployeeBalance();
+        }
+        return AllEmployeeBalance;
+    }
+
 
 
 

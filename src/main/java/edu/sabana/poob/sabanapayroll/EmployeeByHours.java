@@ -12,8 +12,8 @@ public class EmployeeByHours extends Employee {
     public final static double VALOR_HORA = 3.5;
     private double horas_trabajadas;
 
-    public EmployeeByHours(String name, String lastname, Department department, double horas_trabajadas) {
-        super(name, lastname, department);
+    public EmployeeByHours(String name, String lastname, Department department, double horas_trabajadas,String tipodeCuenta) {
+        super(name, lastname, department, tipodeCuenta);
         this.horas_trabajadas = horas_trabajadas;
     }
     /**

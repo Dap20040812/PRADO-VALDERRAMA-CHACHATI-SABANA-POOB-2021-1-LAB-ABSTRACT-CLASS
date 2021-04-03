@@ -72,4 +72,35 @@ public class Department {
     public void addEmployee(Employee employee){
         employees.add(employee);
     }
+
+    /**
+     * Este metodo encuentra la cuenta de un empleado espesifico
+     * @param idEmployee
+     * @return BankAccount del empleado
+     */
+    public BankAccount findEmployeeAccount(UUID idEmployee) {
+
+        boolean isEmployee = false;
+        BankAccount a = null;
+
+        for(int i=0;i<employees.size() && !isEmployee; i++ ) {
+            if (employees.get(i).getId() == idEmployee) {
+                a=employees.get(i).getAccount();
+                isEmployee = true;
+            }
+        }
+        return a;
+    }
+
+    public double findEmployeeBalance() {
+
+        boolean isEmployee = false;
+        double a = 0;
+
+        for (Employee e: this.employees)
+        {
+            a += e.getAccount().getBalance();
+        }
+        return a;
+    }
 }

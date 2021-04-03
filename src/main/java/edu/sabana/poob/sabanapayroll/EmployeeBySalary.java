@@ -14,8 +14,8 @@ public class EmployeeBySalary extends Employee {
     private static final double SOCIAL_EQUITY_DISCOUNT = 0.04;
     private double salary;
 
-    public EmployeeBySalary(String name, String lastname, Department department, double salary) {
-        super(name, lastname, department);
+    public EmployeeBySalary(String name, String lastname, Department department, double salary, String tipodeCuenta) {
+        super(name, lastname, department,tipodeCuenta);
         this.salary = salary;
     }
     /**

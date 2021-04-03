@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SabanaNominaTest {
     private static EmployeeBySalary e1;
@@ -24,9 +24,9 @@ public class SabanaNominaTest {
         d1 = new Department( "D1");
         s.addDepartment(d);
         s.addDepartment(d1);
-        e1 = new EmployeeBySalary("E","R",d,120);
-        e2 = new EmployeeByHours("R","T",d1,5);
-        e3 = new EmployeeByCommission("T","Y",d,6);
+        e1 = new EmployeeBySalary("E","R",d,120,"Saving");
+        e2 = new EmployeeByHours("R","T",d1,5,"Checking");
+        e3 = new EmployeeByCommission("T","Y",d,6,"Checking");
         d.addEmployee(e1);
         d.addEmployee(e3);
         d1.addEmployee(e2);
@@ -74,4 +74,49 @@ public class SabanaNominaTest {
 
 
     }
+
+    @Test
+    public void ShouldDepositToEmployee(){
+
+        assertTrue(s.depositToEmployee(e1.getId(),10000));
+        assertTrue(Double.compare(8000,e1.getAccount().getBalance())== 0);
+        assertFalse(s.depositToEmployee(e2.getId(),5000));
+        assertTrue(Double.compare(0,e2.getAccount().getBalance())== 0);
+        assertTrue(s.depositToEmployee(e3.getId(),6000));
+        assertTrue(Double.compare(1000,e3.getAccount().getBalance())== 0);
+
+    }
+
+    @Test
+    public void ShouldCalculateEmployeeBalance(){
+
+        double a = s.calculateEmployeeBalance(e1.getId());
+        double b = s.calculateEmployeeBalance(e2.getId());
+        double c = s.calculateEmployeeBalance(e3.getId());
+
+        assertTrue(s.depositToEmployee(e1.getId(),10000));
+        assertTrue(Double.compare(8000+a,s.calculateEmployeeBalance(e1.getId()))== 0);
+        assertFalse(s.depositToEmployee(e2.getId(),5000));
+        assertTrue(Double.compare(0+b,s.calculateEmployeeBalance(e2.getId()))== 0);
+        assertTrue(s.depositToEmployee(e3.getId(),6000));
+        assertTrue(Double.compare(1000+c,s.calculateEmployeeBalance(e3.getId()))== 0);
+
+    }
+
+    @Test
+    public void ShouldCalculateAllEmployeeBalance(){
+
+        double a = s.calculateEmployeeBalance(e1.getId());
+        double b = s.calculateEmployeeBalance(e2.getId());
+        double c = s.calculateEmployeeBalance(e3.getId());
+        assertTrue(s.depositToEmployee(e1.getId(),10000));
+        assertTrue(Double.compare(8000+a,s.calculateEmployeeBalance(e1.getId()))== 0);
+        assertFalse(s.depositToEmployee(e2.getId(),5000));
+        assertTrue(Double.compare(0+b,s.calculateEmployeeBalance(e2.getId()))== 0);
+        assertTrue(s.depositToEmployee(e3.getId(),6000));
+        assertTrue(Double.compare(1000+c,s.calculateEmployeeBalance(e3.getId()))== 0);
+        assertTrue(Double.compare(9000+a+b+c,s.calculateAllEmployeeBalance())== 0);
+
+    }
+
 }

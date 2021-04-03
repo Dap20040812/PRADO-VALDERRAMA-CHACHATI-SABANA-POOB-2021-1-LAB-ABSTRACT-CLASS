@@ -40,6 +40,28 @@ public class SavingTest {
         assertTrue(Double.compare(account.getBalance()* account.ANNUAL_INTEREST_RATE/12, account.getBalance()) == 0);
     }
 
+    @Test
+    public void shouldWithdraw() {
+        Savings account = new Savings();
+
+        assertTrue(account.deposit(10000));
+        assertTrue(Double.compare(8000, account.getBalance()) == 0);
+
+        assertTrue(account.withdraw(4000));
+        assertTrue(Double.compare(3000, account.getBalance()) == 0);
+
+    }
+    @Test
+    public void shouldNotWithdraw() {
+        Savings account = new Savings();
+
+        assertTrue(account.deposit(10000));
+        assertTrue(Double.compare(8000, account.getBalance()) == 0);
+
+        assertFalse(account.withdraw(8000));
+        assertTrue(Double.compare(8000, account.getBalance()) == 0);
+
+    }
 
     @Test
     public void shouldKeepBalance() {
